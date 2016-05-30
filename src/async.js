@@ -1,3 +1,5 @@
+// 构造器函数的语法糖: async函数
+
 var func = (res) => {
   return new Promise((resolve, reject) => {
     if (res) resolve('resolved');
@@ -6,6 +8,7 @@ var func = (res) => {
 };
 var example = async () => {
   try {
+    console.log(await func(true));
     console.log(await func());
   } catch (e) {
     console.log(e);
