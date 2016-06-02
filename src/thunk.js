@@ -14,3 +14,24 @@ const Thunk = (func) => {
 };
 
 var readFileTrunk = Thunk(readFile);
+
+// 此时，Thunk 函数可以用于 Genetator 函数的自动流程管理
+
+var gen = function*() {
+  yield readFileTrunk('/etc/1');
+  yield readFileTrunk('/etc/2');
+};
+
+var a = gen();
+
+var walk = () => {
+  // 调用遍历器的next 方法以返回 yield 后的内容
+  var b = a.next();
+  b.value((err, data) => {
+    if (err) throw err;
+    if (b.done) return;
+    walk();
+  });
+}
+
+walk();
