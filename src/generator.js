@@ -28,12 +28,12 @@ var b = a.next();
 var walk = () => {
   // 调用遍历器的next 方法以返回 yield 后的内容
   b.value.then((res) => {
-    if (b.done) return;
     b = a.next(res);
+    if (b.done) return;
     walk();
   }).catch((err) => {
-    if (b.done) return;
     a.throw(err);
+    if (b.done) return;
   });
 }
 
