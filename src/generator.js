@@ -12,23 +12,28 @@ var func = (res) => {
 
 var example = function*(res) {
   // 暂停，去做 func 的事情
-  yield func(true);
-  yield func();
+  try {
+    var r1 = yield func(true);
+    console.log(r1);
+    var r2 = yield func();
+    console.log(r2);
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 // 调用后返回一个内部指针(即遍历器g)
 var a = example();
-
+var b = a.next();
 var walk = () => {
   // 调用遍历器的next 方法以返回 yield 后的内容
-  var b = a.next();
   b.value.then((res) => {
-    console.log(res);
     if (b.done) return;
+    b = a.next(res);
     walk();
   }).catch((err) => {
-    console.log(err);
     if (b.done) return;
+    a.throw(err);
   });
 }
 
