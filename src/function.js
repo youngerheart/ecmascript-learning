@@ -39,3 +39,21 @@ function f(x, y = x) {
 }
 
 f(2) // 2
+
+let x = 1;
+
+function f(y = x) {
+  let x = 2;
+  console.log(y);
+}
+
+f() // 1， 在赋值时作用域内的x还没有生成。全局变量x不存在，就会报错。
+
+let foo = 'outer';
+
+function bar(func = x => foo) {// 此时使用了外层作用域
+  let foo = 'inner';
+  console.log(func()); // outer
+}
+
+bar();
