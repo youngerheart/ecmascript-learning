@@ -57,3 +57,17 @@ function bar(func = x => foo) {// 此时使用了外层作用域
 }
 
 bar();
+
+// 箭头函数
+// 函数体内的this对象就是定义时所在的对象
+// 不可当做构造函数 不可使用new命令 没有arguments对象 不可以使用 yield 命令
+
+function foo() {
+  setTimeout(() => {// 定义时this为{ id: 42 }
+    console.log('id:', this.id);
+  }, 100);
+}
+
+var id = 21;
+
+foo.call({ id: 42 }); // id: 42
