@@ -21,7 +21,9 @@ for (var name of Reflect.enumerate(cat)) {
 }
 
 // Object.create() 深拷贝一个对象(对于简化继承之类并没什么卵用)
+// Object.assign() es2015, 并未被chrome, firefox之外的浏览器支持
 var a1 = Object.create({a: 1, b: 2});
+var a2 = Object.assign({a: 1, b: 2});
 
 for (var name of Reflect.enumerate(a1)) {
   console.log(name);
