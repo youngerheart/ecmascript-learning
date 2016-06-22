@@ -40,7 +40,7 @@ function f(x, y = x) {
 
 f(2) // 2
 
-let x = 1;
+x = 1;
 
 function f(y = x) {
   let x = 2;
@@ -49,10 +49,10 @@ function f(y = x) {
 
 f() // 1， 在赋值时作用域内的x还没有生成。全局变量x不存在，就会报错。
 
-let foo = 'outer';
+foo = 'outer';
 
 function bar(func = x => foo) {// 此时使用了外层作用域
-  let foo = 'inner';
+  let foo = 'inner'; // 难道babel有bug？
   console.log(func()); // outer
 }
 
@@ -62,7 +62,7 @@ bar();
 // 函数体内的this对象就是定义时所在的对象
 // 不可当做构造函数 不可使用new命令 没有arguments对象 不可以使用 yield 命令
 
-function foo() {
+function func() {
   setTimeout(() => {// 定义时this为{ id: 42 }
     console.log('id:', this.id);
   }, 100);
@@ -70,4 +70,4 @@ function foo() {
 
 var id = 21;
 
-foo.call({ id: 42 }); // id: 42
+func.call({ id: 42 }); // id: 42

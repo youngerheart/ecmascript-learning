@@ -23,7 +23,7 @@ let map = new Map([
   [3, 'three'],
 ]);
 
-let arr = [...map.keys()]; // [1, 2, 3]
+console.log([...map.keys()]); // [1, 2, 3]
 
 var go = function*(){
   yield 1;
@@ -31,4 +31,4 @@ var go = function*(){
   yield 3;
 };
 
-[...go()] // [1, 2, 3]
+console.log([...go()]); // [1, 2, 3]
