@@ -1,8 +1,16 @@
 # ecmascript-learning
-new usage examples for ecmascript
+> new usage examples for ecmascript
 
-# run example
+## Development
 
+```shell
+make dev
 ```
-make run xx // filename in /src, such as 'async'
+
+## Production
 ```
+make dist
+```
+
+## License
+MIT
