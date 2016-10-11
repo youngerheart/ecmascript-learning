@@ -25,6 +25,7 @@ Object(1) // Number {...}
 * **getOwnPropertyDescriptor** 获取某个属性的attributes对象
 * **defineProperty与defineProperties** 定义一个或多个属性
 * **getOwnPropertyNames** 返回直接定义在某个对象上面全部属性的名称
+* **getPrototypeOf** 返回指定对象的原型
 
 * **preventExtensions** 防止对象拓展（使用defineProperty抛出异常，直接添加属性会失效，且原型不可更改）
 * **isExtensible** 判断对象是否可拓展
