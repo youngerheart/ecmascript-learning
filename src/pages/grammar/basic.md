@@ -57,7 +57,7 @@ b = 1; // ReferenceError: b is not defined
 
 大括号中的语句构成**区块**
 
-js 中的区块不构成单独的作用域，在其中使用`var`声明的变量与之外的变量属于同一作用域。js中的区块一般用来构成语法结构，如`for`，`if`，`while`，`function`等。
+js中的区块不构成单独的作用域，在其中使用`var`声明的变量与之外的变量属于同一作用域。js中的区块一般用来构成语法结构，如`for`，`if`，`while`，`function`等。
 
 ## 语句
 
